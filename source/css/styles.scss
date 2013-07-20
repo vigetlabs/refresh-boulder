@@ -1,0 +1,168 @@
+// dependencies
+@import 'compass';
+@import 'animation';
+@import 'breakpoint';
+
+@import 'compass/reset';
+
+@import 'variables';
+@import 'type';
+
+* {
+	@include box-sizing(border-box);
+}
+
+body {
+	@extend %gudea;
+
+	background: $dark-green;
+	color: $light-green;
+	font-size: 18px;
+	line-height: (30/18);
+}
+
+a {
+	color: $orange;
+	text-decoration: none;
+
+	&:hover {
+		color: $orange + 30;
+	}
+}
+
+header {
+	margin: 30px auto;
+	width: $col6;
+}
+
+.logo {
+	background-image: image-url('logo.png');
+	background-size: image-width('logo.png') image-height('logo.png');
+	height: image-height('logo.png');
+	text-indent: -9999px;
+	width: image-width('logo.png');
+}
+
+.intro {
+	margin: 0 auto 60px;
+	width: $col6;
+}
+
+.details {
+	margin: 0 auto;
+	padding-bottom: 25px;
+	position: relative;
+	width: $col6;
+
+	h2 {
+		@extend %advent;
+
+		border-bottom: #2d2f22 6px double;
+		color: $mint;
+		font-size: 32px;
+		line-height: 55px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	dl {
+		margin-bottom: 40px;
+		overflow: hidden;
+	}
+
+	dt {
+		@extend %advent;
+
+		clear: left;
+		color: $mint;
+		float: left;
+		font-size: 24px;
+		line-height: 1;
+		margin: 15px 0;
+		padding-right: $gutter;
+		text-align: right;
+		text-transform: lowercase;
+		width: $col2;
+	}
+
+	dd {
+		color: $cream;
+		font-weight: bold;
+		float: left;
+		font-size: 16px;
+		line-height: 1.5;
+		margin: 15px 0;
+		width: $col4;
+
+		b {
+			color: $light-green;
+			font-style: normal;
+			font-weight: normal;
+		}
+	}
+}
+
+.register {
+	@extend %advent;
+
+	background: $orange;
+	border-radius: 35px;
+	color: $dark-green;
+	display: block;
+	font-size: 48px;
+	line-height: 70px;
+	text-align: center;
+}
+
+.afterwards {
+	font-size: 16px;
+	font-style: italic;
+	padding: 20px 0;
+	text-align: center;
+}
+
+.callout {
+	background: $dark-green - 30;
+	border-radius: 50%;
+	color: $light-green;
+	display: block;
+	font-size: 14px;
+	height: 170px;
+	padding: 40px 25px 0;
+	position: absolute;
+	right: -230px;
+	text-align: center;
+	top: 50px;
+	width: 170px;
+
+	b {
+		@extend %advent;
+
+		color: $orange;
+		display: block;
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+
+	@include transform(
+		rotate(-6deg)
+	);
+}
+
+footer {
+	background: $medium-green;
+	color: #818661;
+	font-size: 12px;
+	line-height: 25px;
+	padding: 10px;
+	text-align: center;
+
+	&:after {
+		content: '';
+		display: block;
+		height: 7px;
+		left: 0;
+		top: -13px;
+		right: 0;
+	}
+}

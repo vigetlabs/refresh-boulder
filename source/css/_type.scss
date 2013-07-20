@@ -1,0 +1,47 @@
+@font-face {
+	font-family: 'Gudea';
+	src: font-url('gudea-regular-webfont.eot');
+	src: font-url('gudea-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		font-url('gudea-regular-webfont.woff') format('woff'),
+		font-url('gudea-regular-webfont.ttf') format('truetype'),
+		font-url('gudea-regular-webfont.svg#gudearegular') format('svg');
+}
+
+@font-face {
+	font-family: 'Gudea';
+	src: font-url('gudea/italic.eot');
+	src: font-url('gudea/italic.eot?#iefix') format('embedded-opentype'),
+		font-url('gudea/italic.woff') format('woff'),
+		font-url('gudea/italic.ttf') format('truetype'),
+		font-url('gudea/italic.svg#gudeaitalic') format('svg');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Gudea';
+	src: font-url('gudea/bold.eot');
+	src: font-url('gudea/bold.eot?#iefix') format('embedded-opentype'),
+		font-url('gudea/bold.woff') format('woff'),
+		font-url('gudea/bold.ttf') format('truetype'),
+		font-url('gudea/bold.svg#gudeabold') format('svg');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Advent';
+	src: font-url('advent/bold.eot');
+	src: font-url('advent/bold.eot?#iefix') format('embedded-opentype'),
+		font-url('advent/bold.woff') format('woff'),
+		font-url('advent/bold.ttf') format('truetype'),
+		font-url('advent/bold.svg#gudeabold') format('svg');
+	font-weight: bold;
+}
+
+%gudea {
+	font-family: Gudea, sans-serif;
+}
+
+%advent {
+	font-family: Advent, sans-serif;
+	font-weight: bold;
+}
