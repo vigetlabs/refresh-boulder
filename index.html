@@ -9,6 +9,14 @@
 
 		<link rel="stylesheet" href="/compiled/css/styles.css">
 		<script src="/compiled/js/modernizr.js"></script>
+		<script>
+			// add class to html to trigger intro animations
+			window.animationClasses = [
+				'fadein'
+			];
+			var animationClass = animationClasses[Math.floor(Math.random() * animationClasses.length)];
+			document.documentElement.className += ' animation--' + animationClass;
+		</script>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -72,8 +80,9 @@
 			</p>
 		</footer>
 		<script>
-			// add class to html to trigger intro animations
-			document.documentElement.className = 'loaded';
+			setTimeout(function() {
+				document.documentElement.className += ' animation--' + animationClass + '--loaded';
+			}, 1);
 		</script>
 	</body>
 </html>

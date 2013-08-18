@@ -50,8 +50,18 @@ header {
 .logo {
 	margin-top: 30px;
 
+
 	img {
 		width: 100%;
+	}
+
+	.animation--fadein & {
+		@include opacity(0);
+	}
+
+	.animation--fadein--loaded & {
+		@include opacity(1);
+		@include transition(opacity 1.6s);
 	}
 }
 
