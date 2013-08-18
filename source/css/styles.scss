@@ -5,6 +5,7 @@
 
 @import 'compass/reset';
 
+@import 'functions';
 @import 'variables';
 @import 'type';
 
@@ -15,51 +16,79 @@
 body {
 	@extend %gudea;
 
-	background: $dark-green;
+	background: $dark-green image-url('background.jpg') 30% 50%;
+	background-size: image-width('background.jpg') / 2 image-height('background.jpg') / 2;
 	color: $light-green;
 	font-size: 18px;
 	line-height: (30/18);
+
+	@include breakpoint($break3) {
+		font-size: 22px;
+	}
 }
 
 a {
 	color: $orange;
 	text-decoration: none;
 
+	&:focus,
 	&:hover {
 		color: $orange + 30;
 	}
 }
 
+.wrapper {
+	margin: 0 auto;
+	max-width: $col6 + ($gutter * 2);
+	padding: 0 $gutter;
+}
+
 header {
-	margin: 30px auto;
-	width: $col6;
+	margin-bottom: 30px;
 }
 
 .logo {
-	background-image: image-url('logo.png');
-	background-size: image-width('logo.png') image-height('logo.png');
-	height: image-height('logo.png');
-	text-indent: -9999px;
-	width: image-width('logo.png');
+	margin-top: 30px;
+
+	img {
+		width: 100%;
+	}
+}
+
+.twitter {
+	@extend %advent;
+
+	background: image-url('twitter.png') 0 -5px no-repeat;
+	background-size: image-width('twitter.png') / 2 image-height('twitter.png') / 2;
+	color: $mint;
+	display: block;
+	font-size: em(16);
+	padding: 25px 0 20px 150px;
+	text-transform: uppercase;
+
+	@include transition(all 0.2s ease-in-out);
+
+	@include breakpoint($break2) {
+		right: 40px;
+		position: absolute;
+		top: 0;
+	}
 }
 
 .intro {
-	margin: 0 auto 60px;
-	width: $col6;
+	margin-bottom: 60px;
 }
 
 .details {
-	margin: 0 auto;
 	padding-bottom: 25px;
 	position: relative;
-	width: $col6;
 
 	h2 {
 		@extend %advent;
 
 		border-bottom: #2d2f22 6px double;
 		color: $mint;
-		font-size: 32px;
+		font-size: em(32);
 		line-height: 55px;
 		text-align: center;
 		text-transform: uppercase;
@@ -75,29 +104,41 @@ header {
 
 		clear: left;
 		color: $mint;
-		float: left;
-		font-size: 24px;
+		font-size: em(24);
 		line-height: 1;
-		margin: 15px 0;
-		padding-right: $gutter;
-		text-align: right;
+		margin: 15px 0 0;
 		text-transform: lowercase;
-		width: $col2;
+
+		@include breakpoint($break1) {
+			float: left;
+			margin-bottom: 15px;
+			padding-right: $gutter;
+			text-align: right;
+			width: $col2;
+		}
 	}
 
 	dd {
+		border-bottom: #2d2f22 6px double;
 		color: $cream;
 		font-weight: bold;
-		float: left;
-		font-size: 16px;
+		font-size: em(16);
 		line-height: 1.5;
-		margin: 15px 0;
-		width: $col4;
+		margin: 10px 0 15px;
+		padding-bottom: 15px;
 
 		b {
 			color: $light-green;
 			font-style: normal;
 			font-weight: normal;
+		}
+
+		@include breakpoint($break1) {
+			border-bottom: none;
+			float: left;
+			margin-top: 15px;
+			padding: 0;
+			width: $col4;
 		}
 	}
 }
@@ -106,34 +147,42 @@ header {
 	@extend %advent;
 
 	background: $orange;
-	border-radius: 35px;
+	border-radius: em(35);
+	border-bottom: 0px solid $orange - 20;
 	color: $dark-green;
 	display: block;
-	font-size: 48px;
-	line-height: 70px;
+	font-size: em(48);
 	text-align: center;
+
+	@include transition(all 0.2s ease-in-out);
+
+	&:hover {
+		border-bottom-width: 10px;
+		color: $dark-green;
+		margin: -10px 0 0;
+	}
 }
 
 .afterwards {
-	font-size: 16px;
+	font-size: em(16);
 	font-style: italic;
 	padding: 20px 0;
 	text-align: center;
 }
 
 .callout {
-	background: $dark-green - 30;
+	background: $dark-green - 30 image-url('callout.png') 50% 50% no-repeat;
+	background-size: image-width('callout.png') / 2 image-height('callout.png') / 2;
 	border-radius: 50%;
 	color: $light-green;
 	display: block;
 	font-size: 14px;
 	height: 170px;
+	margin: 30px auto;
 	padding: 40px 25px 0;
-	position: absolute;
-	right: -230px;
 	text-align: center;
-	top: 50px;
 	width: 170px;
+	@include transition(all 0.2s ease-in-out);
 
 	b {
 		@extend %advent;
@@ -144,9 +193,30 @@ header {
 		text-transform: uppercase;
 	}
 
+	&:focus,
+	&:hover {
+		height: 200px;
+		margin: 15px auto;
+		padding: 55px 40px 0;
+		width: 200px;
+
+		@include breakpoint($break1) {
+			margin: 0;
+			right: -245px;
+			top: 35px;
+		}
+	}
+
 	@include transform(
 		rotate(-6deg)
 	);
+
+	@include breakpoint($break1) {
+		margin: 0;
+		position: absolute;
+		right: -230px;
+		top: 50px;
+	}
 }
 
 footer {
@@ -155,14 +225,33 @@ footer {
 	font-size: 12px;
 	line-height: 25px;
 	padding: 10px;
+	position: relative;
 	text-align: center;
 
 	&:after {
+		background: $medium-green;
 		content: '';
 		display: block;
 		height: 7px;
 		left: 0;
+		position: absolute;
 		top: -13px;
 		right: 0;
+	}
+}
+
+.organized {
+	display: block;
+
+	@include breakpoint($break1) {
+		display: inline-block;
+	}
+}
+
+.copyright {
+	display: block;
+
+	@include breakpoint($break1) {
+		display: inline-block;
 	}
 }

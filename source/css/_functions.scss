@@ -1,0 +1,3 @@
+@function em($total, $base: 18) {
+	@return ($total + 0em) / $base;
+}
