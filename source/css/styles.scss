@@ -146,9 +146,10 @@ header {
 .register {
 	@extend %advent;
 
-	background: $orange;
+	background: $orange image-url('register.jpg');
+	background-size: image-width('register.jpg') / 2 image-height('register.jpg') / 2;
 	border-radius: em(35);
-	border-bottom: 0px solid $orange - 20;
+	border-bottom: 0px solid desaturate($orange - 40, 25%);
 	color: $dark-green;
 	display: block;
 	font-size: em(48);
@@ -160,6 +161,7 @@ header {
 		border-bottom-width: 10px;
 		color: $dark-green;
 		margin: -10px 0 0;
+		text-shadow: 0px 0 3px $orange + 60;
 	}
 }
 
