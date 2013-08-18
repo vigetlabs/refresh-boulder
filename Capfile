@@ -1,6 +1,6 @@
 set :user,        "www-data"
 set :application, "refreshboulder"
-set :deploy_to,   "/var/www/#{application}"
+set :deploy_to,   "/var/www/#{application}/current"
 
 role :web, "192.237.210.170"
 
