@@ -17,7 +17,6 @@ body {
 	@extend %gudea;
 
 	background: $dark-green image-url('background.jpg') 30% 50%;
-	background-size: image-width('background.jpg') / 2 image-height('background.jpg') / 2;
 	color: $light-green;
 	font-size: 18px;
 	line-height: (30/18);
