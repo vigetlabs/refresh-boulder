@@ -249,20 +249,13 @@ footer {
 		top: -13px;
 		right: 0;
 	}
-}
 
-.organized {
-	display: block;
+	p {
+		display: block;
 
-	@include breakpoint($break1) {
-		display: inline-block;
-	}
-}
-
-.copyright {
-	display: block;
-
-	@include breakpoint($break1) {
-		display: inline-block;
+		@include breakpoint($break1) {
+			display: inline-block;
+			padding: 0 3px;
+		}
 	}
 }
