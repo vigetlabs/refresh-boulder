@@ -384,6 +384,7 @@ footer {
 
 	p {
 		display: block;
+		padding: 5px 0;
 
 		@include breakpoint($break1) {
 			display: inline-block;
