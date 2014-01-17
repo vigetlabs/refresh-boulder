@@ -18,10 +18,14 @@ body {
 
 	background: $dark-green image-url('background.jpg') 30% 50%;
 	color: $light-green;
-	font-size: 18px;
+	font-size: 14px;
 	line-height: (30/18);
 
-	@include breakpoint($break3) {
+	@include breakpoint($break1) {
+		font-size: 18px;
+	}
+
+	@include breakpoint($break4) {
 		font-size: 22px;
 	}
 }
@@ -36,14 +40,38 @@ a {
 	}
 }
 
+.section-hd {
+	@extend %advent;
+
+	border-bottom: #2d2f22 6px double;
+	color: $cream;
+	font-size: em(32);
+	line-height: 1.3;
+	padding: 10px 0 15px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
 .wrapper {
 	margin: 0 auto;
-	max-width: $col6 + ($gutter * 2);
+	max-width: $col8;
+	overflow: hidden;
 	padding: 0 $gutter;
+
+	@include breakpoint($break3) {
+		max-width: $col12 + ($gutter * 2);
+		padding-bottom: 75px;
+		padding-top: 75px;
+	}
 }
 
 header {
 	margin-bottom: 30px;
+
+	@include breakpoint($break3) {
+		float: left;
+		width: $col6
+	}
 }
 
 .logo {
@@ -85,26 +113,39 @@ header {
 }
 
 .intro {
-	margin-bottom: 60px;
+	font-size: em(20);
+	margin-bottom: 30px;
+	padding-top: 20px;
+	line-height: 1.4;
+}
+
+.event-title {
+	color: $cream;
+	font-size: em(24);
+	line-height: 1.33;
+	padding: 20px 0 10px;
 }
 
 .details {
-	padding-bottom: 25px;
+	padding: 0 0 60px;
 	position: relative;
 
-	h2 {
-		@extend %advent;
+	@include breakpoint($break3) {
+		float: right;
+		padding-top: 100px;
+		width: $col5
+	}
 
-		border-bottom: #2d2f22 6px double;
-		color: $mint;
-		font-size: em(32);
-		line-height: 55px;
-		text-align: center;
-		text-transform: uppercase;
+	br {
+		display: none;
+
+		@include breakpoint($break3) {
+			display: inline;
+		}
 	}
 
 	dl {
-		margin-bottom: 40px;
+		margin-bottom: 10px;
 		overflow: hidden;
 	}
 
@@ -112,8 +153,8 @@ header {
 		@extend %advent;
 
 		clear: left;
-		color: $mint;
-		font-size: em(24);
+		color: $brown;
+		font-size: em(20);
 		line-height: 1;
 		margin: 15px 0 0;
 		text-transform: lowercase;
@@ -123,23 +164,29 @@ header {
 			margin-bottom: 15px;
 			padding-right: $gutter;
 			text-align: right;
-			width: $col2;
+			width: $col1;
 		}
 	}
 
 	dd {
 		border-bottom: #2d2f22 6px double;
-		color: $cream;
-		font-weight: bold;
+		color: $light-green;
 		font-size: em(16);
-		line-height: 1.5;
+		line-height: 1.25;
 		margin: 10px 0 15px;
 		padding-bottom: 15px;
 
-		b {
-			color: $light-green;
-			font-style: normal;
-			font-weight: normal;
+		p {
+			margin-bottom: 5px;
+		}
+
+		em {
+			display: block;
+			font-style: italic;
+		}
+
+		a {
+			color: $mint;
 		}
 
 		@include breakpoint($break1) {
@@ -147,6 +194,14 @@ header {
 			float: left;
 			margin-top: 15px;
 			padding: 0;
+			width: $col4;
+		}
+
+		@include breakpoint($break2) {
+			width: $col6;
+		}
+
+		@include breakpoint($break1) {
 			width: $col4;
 		}
 	}
@@ -174,59 +229,136 @@ header {
 	}
 }
 
-.afterwards {
-	font-size: em(16);
-	font-style: italic;
-	padding: 20px 0;
-	text-align: center;
+.upcoming {
+	background: $medium-green;
+	margin-bottom: 75px;
+	overflow: hidden;
+	padding: $gutter;
+
+	@include breakpoint($break3) {
+		padding-bottom: 30px;
+		padding-top: 30px;
+	}
+
+	ul {
+		overflow: hidden;
+		padding: 10px 0;
+	}
+
+	li {
+		clear: both;
+		line-height: 1.4;
+		padding: 20px 0;
+
+		@include breakpoint($break1) {
+			float: left;
+			width: 45%;
+
+			&:nth-child(2n) {
+				clear: none;
+				float: right;
+			}
+		}
+
+		p {
+			a {
+				color: $mint;
+				font-weight: bold;
+			}
+
+			b {
+				color: $brown;
+				display: block;
+				font-size: em(14);
+			}
+		}
+
+		.rsvp {
+			@extend %advent;
+
+			background: $mint image-url('rsvp.jpg');
+			background-size: image-width('rsvp.jpg') / 2 image-height('rsvp.jpg') / 2;
+			border-radius: em(17);
+			border-bottom: 0px solid $mint - 60;
+			color: $medium-green;
+			display: block;
+			font-size: em(30);
+			line-height: 35px;
+			margin: 15px auto;
+			position: relative;
+			text-align: center;
+
+			@include breakpoint($break1) {
+				width: 200px;
+			}
+
+			&:before,
+			&:after {
+				content: '\2605';
+				font-size: em(8);
+				position: absolute;
+				top: 0;
+				width: 40px;
+			}
+
+			&:before {
+				left: 0;
+			}
+
+			&:after {
+				right: 0;
+			}
+
+			@include transition(all 0.2s ease-in-out);
+
+			&:hover {
+				border-bottom-width: 3px;
+				margin-top: 12px;
+			}
+		}
+	}
 }
 
-.callout {
-	background: $dark-green - 30 image-url('callout.png') 50% 50% no-repeat;
-	background-size: image-width('callout.png') / 2 image-height('callout.png') / 2;
-	border-radius: 50%;
-	color: $light-green;
-	display: block;
-	font-size: 14px;
-	height: 170px;
-	margin: 30px auto;
-	padding: 40px 25px 0;
+.upcoming-inner {
+	margin: 0 auto;
+	max-width: $col12 + ($gutter * 2);
+	position: relative;
+}
+
+.upcoming-interested {
+	font-size: em(16);
+	font-style: italic;
 	text-align: center;
-	width: 170px;
-	@include transition(all 0.2s ease-in-out);
 
-	b {
-		@extend %advent;
-
-		color: $orange;
-		display: block;
-		font-size: 18px;
-		text-transform: uppercase;
+	@include breakpoint($break3) {
+		font-style: normal;
+		line-height: 3;
+		position: absolute;
+		right: 0;
+		text-align: left;
+		top: 10px;
 	}
+
+	a {
+		color: $orange;
+		font-weight: bold;
+
+		&:focus,
+		&:hover {
+			color: $orange + 30;
+		}
+	}
+}
+
+.past-link {
+	color: $orange;
+	display: block;
+	font-size: em(16);
+	font-weight: bold;
 
 	&:focus,
 	&:hover {
-		height: 200px;
-		margin: 15px auto;
-		padding: 55px 40px 0;
-		width: 200px;
-
-		@include breakpoint($break1) {
-			margin: 0;
-			right: -245px;
-			top: 35px;
-		}
-	}
-
-	@include transform(
-		rotate(-6deg)
-	);
-
-	@include breakpoint($break1) {
-		margin: 0;
-		position: absolute;
-		right: -230px;
-		top: 50px;
+		color: $orange + 30;
 	}
 }
 
@@ -234,8 +366,8 @@ footer {
 	background: $medium-green;
 	color: #818661;
 	font-size: 12px;
-	line-height: 25px;
-	padding: 10px;
+	line-height: 1.4;
+	padding: $gutter;
 	position: relative;
 	text-align: center;
 
