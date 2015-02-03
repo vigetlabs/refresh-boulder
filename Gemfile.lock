@@ -7,6 +7,12 @@ GEM
     breakpoint (2.0.5)
       compass (>= 0.12.1)
       sass (>= 3.2.0)
+    capistrano (2.15.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     ceaser-easing (0.7)
       compass (>= 0.12.2)
       rake
@@ -16,6 +22,14 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     fssm (0.2.10)
+    highline (1.6.21)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.9.2)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     rake (10.1.0)
     sass (3.2.9)
     sass-globbing (1.1.0)
@@ -27,6 +41,7 @@ PLATFORMS
 DEPENDENCIES
   animation
   breakpoint
+  capistrano (~> 2.15)
   ceaser-easing
   compass
   sass (= 3.2.9)
